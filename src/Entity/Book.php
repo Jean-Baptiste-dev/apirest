@@ -2,7 +2,13 @@
 
 namespace App\Entity;
 
+use ApiPlatform\GraphQl\Resolver\Stage\SecurityPostDenormalizeStage;
 use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Delete;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\Patch;
+use ApiPlatform\Metadata\Post;
+use ApiPlatform\Metadata\Put;
 use App\Repository\BookRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
@@ -10,6 +16,14 @@ use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: BookRepository::class)]
 #[ApiResource()]
+#[Get()]
+#[Post(
+    denormalizationContext: ['groups' => ['write']],
+    normalizationContext: ['groups' => ['write']]
+)]
+#[Put()]
+#[Patch()]
+#[Delete()]
 class Book
 {
     #[ORM\Id]

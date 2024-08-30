@@ -25,6 +25,7 @@ class PostController extends AbstractController
             'posts' => $posts,
         ]);
     }
+
     #[Route('/post/create', name: 'app.post.create', methods: ['POST'])]
     public function create(Request $request)
     {
@@ -40,6 +41,7 @@ class PostController extends AbstractController
             ]);
         }
     }
+
     #[Route('/post/edit/{id}', name: 'app.post.edit', methods: ['PUT', 'PATCH'])]
     public function edit(Request $request, Post $post)
     {
