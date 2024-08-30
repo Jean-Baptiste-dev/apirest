@@ -17,6 +17,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: PostRepository::class)]
 #[ApiResource(
+    /*
     Operation: [
         new GetCollection(normalizationContext: ['groups' => 'post:list']),
         new Get(normalizationContext: ['groups' => 'post:item']),
@@ -25,7 +26,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
         new Put(),
         new PostData(),
     ],
-)]
+    */)]
 
 class Post
 {
